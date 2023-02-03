@@ -12,7 +12,7 @@ import utility_functions as uf
 
 
 # Read files combine into 1
-def read_files(in_folder, error_folder, prefix, processing_hour, header, extension=".csv"):
+def read_files(logger, in_folder, error_folder, prefix, processing_hour, header, extension=".csv"):
     df = None
     df_list = []
     process_list = []
@@ -22,21 +22,24 @@ def read_files(in_folder, error_folder, prefix, processing_hour, header, extensi
             file_path = os.path.join(in_folder, filename)
             error_subfolder = os.path.join(error_folder, processing_hour)
             try:
-                df = pd.read_csv(file_path, header=0)
+                data = pd.read_csv(file_path, header=0)
             except:
-                print(f"Failed to read {filename}")
+                logger.error(f"Failed to read {filename}")
                 uf.move_file(file_path, error_subfolder, filename)
                 continue
 
-            if list(df.columns) == header:
-                df_list.append(df)
+            if list(data.columns) == header:
+                df_list.append(data)
                 process_list.append(filename)
+                logger.debug(f"{filename} read")
             else:
-                print(f"{filename} does not have the expected header")
-                uf.move_file(file_path, error_folder, filename)
+                logger.error(f"{filename} does not have the expected header")
+                uf.move_file(file_path, error_subfolder, filename)
 
-    if len(df_list) > 0:
+    if len(process_list) > 0:
         df = pd.concat(df_list, axis=0, ignore_index=True)
+        logger.info(f"Number of file read {len(process_list)}")
+        logger.info(f"Number of application found {len(df.index)}")
     return df, process_list
 
 
@@ -83,13 +86,20 @@ def review_application(df):
 
 
 # Output data into csv
-def output_data(df, folder, filename):
-    df.to_csv(os.path.join(folder, filename), index=False, header=True, mode='w+')
+def output_data(logger, df, out_folder, filename):
+    df.to_csv(os.path.join(out_folder, filename), index=False, header=True, mode='w+')
+    logger.debug(f"Saved {filename} to {out_folder}")
 
 
 # Archiving processed file
-def archive_file(in_folder, archive_folder, process_list, processing_hour):
+def archive_file(logger, in_folder, archive_folder, process_list, processing_hour):
     for filename in process_list:
         file_path = os.path.join(in_folder, filename)
         archive_subfolder = os.path.join(archive_folder, processing_hour)
         uf.move_file(file_path, archive_subfolder, filename)
+        logger.debug(f"Archived {filename} to {archive_subfolder}")
+
+
+# Create logging
+def get_logger(log_folder, processing_hour, log_level):
+    return uf.create_logger(log_folder, processing_hour, log_level)

@@ -10,6 +10,8 @@ OUT_S_FOLDER = "../simulation/OUT/successful"
 OUT_US_FOLDER = "../simulation/OUT/unsuccessful"
 ARCHIVE_FOLDER = "../simulation/ARCHIVE"
 ERROR_FOLDER = "../simulation/ERROR"
+LOG_FOLDER = "../simulation/logs"
 
+LOG_LEVEL = "INFO"
 
 EXPECTED_HEADER = ['name', 'email', 'date_of_birth', 'mobile_no']

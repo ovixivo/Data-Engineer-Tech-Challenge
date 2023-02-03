@@ -8,6 +8,9 @@
 import os
 import shutil
 import hashlib
+import datetime
+import logging
+from logging.handlers import TimedRotatingFileHandler
 
 
 def move_file(current_path, target_folder, filename):
@@ -54,3 +57,18 @@ def hash_sha256_truncate(value):
     sha256.update(value.encode('utf-8'))
     hashed_value = sha256.hexdigest()
     return hashed_value[:5]
+
+
+def create_logger(log_folder, filename, log_level):
+    log_file = os.path.join(log_folder, filename + '.log')
+    logger = logging.getLogger("Pipeline")
+    level = logging.getLevelName(log_level)
+    logger.setLevel(level)
+
+    # Add a file handler to the logger
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(level)
+    file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+    logger.addHandler(file_handler)
+
+    return logger
