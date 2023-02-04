@@ -10,4 +10,3 @@ COPY ./sample_data/* /tmp/sample_data
 COPY ./sql_queries/* /tmp/sql_queries
 
 COPY ./sql_scripts/1-create_tables.sql /docker-entrypoint-initdb.d/
-
