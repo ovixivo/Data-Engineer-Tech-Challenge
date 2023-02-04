@@ -1,0 +1,1 @@
+psql -d tech_challenge -U postgres -p 5432 -f /tmp/sql_scripts/2-populate_sample_data.sql

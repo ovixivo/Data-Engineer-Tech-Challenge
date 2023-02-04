@@ -1,0 +1,21 @@
+item_id,item_name,make_name,cost,weight_kg
+item1,Sofa Set,Ikea,499,18
+item2,King Size Bed,Ashley Furniture,349,24
+item3,Dining Table,West Elm,449,20
+item4,Armchair,La-Z-Boy,449,14
+item5,Bookshelf,Ikea,149,12
+item6,Coffee Table,West Elm,249,10
+item7,Side Table,Ashley Furniture,99,8
+item8,Office Desk,Ikea,349,20
+item9,Standing Lamp,West Elm,99,6
+item10,Floor Rug,Ikea,149,8
+item11,Wall Mirror,Ashley Furniture,149,8
+item12,Accent Chair,La-Z-Boy,199,12
+item13,Queen Size Bed,Ikea,299,20
+item14,Wardrobe Closet,Ashley Furniture,499,32
+item15,Entertainment Center,West Elm,449,24
+item16,Computer Desk,Ikea,299,18
+item17,Table Lamp,West Elm,49,4
+item18,Area Rug,Ikea,99,8
+item19,Recliner Chair,La-Z-Boy,449,16
+item20,Full Size Bed,Ashley Furniture,299,20
