@@ -9,6 +9,7 @@ CREATE TABLE members (
     is_active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
+
 CREATE TABLE items (
 	item_id VARCHAR ( 50 ) PRIMARY KEY,
 	item_name VARCHAR ( 255 ),
@@ -28,8 +29,12 @@ CREATE TABLE sales (
 	total_weight INTEGER,
 	is_fullfiled BOOLEAN NOT NULL DEFAULT FALSE,
 	fullfiled_on TIMESTAMP,
-	created_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+	created_on TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	FOREIGN KEY (membership_id) REFERENCES members(membership_id),
+	FOREIGN KEY (item_id) REFERENCES items(item_id)
 );
-
-
+CREATE INDEX idx_sales_membership_id ON sales(membership_id);
+CREATE INDEX idx_sales_item_id ON sales(item_id);
+CREATE INDEX idx_sales_total_price ON sales(total_price);
+CREATE INDEX idx_sales_total_weight ON sales(total_weight);
 
