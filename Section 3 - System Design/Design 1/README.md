@@ -107,8 +107,8 @@ With the above permissions, service account in application_team will be able to 
 
 ---
 ### Access Matrix
-### To be updated
-![alt text](https://github.com/ovixivo/Data-Engineer-Tech-Challenge/ "Access Matrix")
+
+![alt text](https://github.com/ovixivo/Data-Engineer-Tech-Challenge/blob/section3-dev/Section%203%20-%20System%20Design/Design%201/Access%20Matrix.png "Access Matrix")
 
 
 ---
