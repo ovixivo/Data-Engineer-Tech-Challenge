@@ -1,4 +1,5 @@
 # Function script to process individual process in the pipeline
+# Contains the processing steps use in the pipeline
 # Created by: Vincent Ngoh
 # Created on: 2023-02-03
 # Last Modified by: Vincent Ngoh
@@ -11,13 +12,14 @@ import os
 import utility_functions as uf
 
 
-# Read files combine into 1
+# Read files combine into 1 dataframe
 def read_files(logger, in_folder, error_folder, prefix, processing_hour, header, extension=".csv"):
     df = None
     df_list = []
     process_list = []
     all_files = os.listdir(in_folder)
     for filename in all_files:
+        # Check file name
         if filename.startswith(prefix) and filename.endswith(extension):
             file_path = os.path.join(in_folder, filename)
             error_subfolder = os.path.join(error_folder, processing_hour)
@@ -28,6 +30,7 @@ def read_files(logger, in_folder, error_folder, prefix, processing_hour, header,
                 uf.move_file(file_path, error_subfolder, filename)
                 continue
 
+            # Check if file is correct format
             if list(data.columns) == header:
                 df_list.append(data)
                 process_list.append(filename)
@@ -44,6 +47,7 @@ def read_files(logger, in_folder, error_folder, prefix, processing_hour, header,
 
 
 # Process names
+# Remove titles, split name
 def process_names(df):
     df['cleaned_name'] = df['name'].apply(uf.remove_titles)
     df[['first_name', 'last_name']] = df['cleaned_name'].str.split(" ", expand=True)
@@ -51,18 +55,21 @@ def process_names(df):
 
 
 # Process email
+# Check email validity
 def process_emails(df):
     df['is_valid_email'] = df['email'].apply(uf.check_email)
     return df
 
 
 # Process mobile
+# Check mobile validity
 def process_mobile(df):
     df['is_valid_mobile'] = df['mobile_no'].apply(uf.check_phone)
     return df
 
 
 # Process Date of birth
+# Check applicant age, standardize date format
 def process_dob(df, cutoff_date=datetime.datetime.today()):
     df['date_of_birth'] = pd.to_datetime(df['date_of_birth'], infer_datetime_format=True, dayfirst=False)
     df['above_18'] = df['date_of_birth'].apply(uf.get_age, args=(cutoff_date,)) >= 18
@@ -71,6 +78,8 @@ def process_dob(df, cutoff_date=datetime.datetime.today()):
 
 
 # Review application
+# Split dataframe into successful, unsuccessful
+# Generate membership id for successful application
 def review_application(df):
     application_status = df.groupby((df["is_valid_email"]) & (df["is_valid_mobile"]) & (df["above_18"]))
     application_status = application_status[

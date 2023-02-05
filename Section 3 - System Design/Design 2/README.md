@@ -6,7 +6,7 @@ This section will cover the designing of a system architecture for a company who
 draw.io is used in this section to draw the diagram 
 
  
-### Summary of task:
+### Summary of tasks:
 
 1. Design a system architecture diagram with the following requirements:
    - Web application for users to upload images via API

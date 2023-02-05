@@ -8,11 +8,10 @@
 import os
 import shutil
 import hashlib
-import datetime
 import logging
-from logging.handlers import TimedRotatingFileHandler
 
 
+# Move file to another location
 def move_file(current_path, target_folder, filename):
     if not os.path.exists(target_folder):
         os.makedirs(target_folder)
@@ -20,6 +19,7 @@ def move_file(current_path, target_folder, filename):
     shutil.move(current_path, target_file_path)
 
 
+# Remove titles from name
 def remove_titles(name):
     titles = ["Mr.", "Ms.", "Miss", "Mrs.", "Dr.", "PhD", "MD", "DDS", 'II', 'III', 'Jr.', 'DVM']
     for title in titles:
@@ -30,6 +30,7 @@ def remove_titles(name):
     return name
 
 
+# Check if email ends with .com or .net
 def check_email(email):
     if (email.count('@') == 1 and
             (email.endswith('.com') or
@@ -39,6 +40,7 @@ def check_email(email):
         return False
 
 
+# Check if mobile number contains 8 digits
 def check_phone(mobile_no):
     if (mobile_no.isdigit() and
             len(mobile_no) == 8):
@@ -47,11 +49,13 @@ def check_phone(mobile_no):
         return False
 
 
+# Get age by given date
 def get_age(dob, cutoff_date):
     age = cutoff_date.year - dob.year - ((cutoff_date.month, cutoff_date.day) < (dob.month, dob.day))
     return age
 
 
+# Hash and truncate a value
 def hash_sha256_truncate(value):
     sha256 = hashlib.sha256()
     sha256.update(value.encode('utf-8'))
@@ -59,6 +63,7 @@ def hash_sha256_truncate(value):
     return hashed_value[:5]
 
 
+# Create a logger object
 def create_logger(log_folder, filename, log_level):
     log_file = os.path.join(log_folder, filename + '.log')
     logger = logging.getLogger("Pipeline")

@@ -5,7 +5,7 @@ This section will the designing of Singapore covid-19 cases dashboard
 Script to pull data will be written in Python 3.9
 Dashboard use will be local hosted Grafana
  
-### Summary of task:
+### Summary of tasks:
 
 1. Create a script to pull data from public data
 	- Data can be pull via Full download or Partial download

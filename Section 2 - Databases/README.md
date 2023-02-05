@@ -5,7 +5,7 @@ Scripts to create the database, sample data for the database and SQL query to an
 
 Running on Docker Desktop for Windows
  
-### Summary of task:
+### Summary of tasks:
 
 1. Create a Dockerfile to pull postgres image
 2. Generate DDL to create relevant tables
