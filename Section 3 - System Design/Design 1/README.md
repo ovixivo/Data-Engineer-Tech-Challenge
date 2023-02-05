@@ -7,7 +7,7 @@ Dockerfile and script of section2 will be reused and updated with the permission
 Running on Docker Desktop for Windows
 
 ---
-### Summary of task:
+### Summary of tasks:
 
 1. Create users and roles in Database
 2. Assign permission to users and roles base on the following condition:
