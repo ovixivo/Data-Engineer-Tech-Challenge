@@ -23,14 +23,14 @@ Running on Docker Desktop for Windows
 3. Update sql script to apply permission on stand up of docker
 
 ---
-### Steps to stand up docker and test data
+### Steps to stand up docker and populate test data
 
 ```shell
 # In current folder
-
 docker build -t postgres-db ./ ; 
 docker run -d --name postgresdb-container -p 5432:5432 postgres-db
 
+# Enter Docker Bash
 docker exec -it postgresdb-container /bin/bash
 
 # In Docker Bash
