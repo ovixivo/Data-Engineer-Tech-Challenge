@@ -32,7 +32,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.covid_data_download">
+  <component name="RunManager" selected="Python.covid_data_download_main">
     <configuration name="application_processing_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Data-Engineer-Tech-Challenge" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -54,7 +54,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="covid_data_download" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="covid_data_download_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Data-Engineer-Tech-Challenge" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,7 +66,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Section 4 - Charts &amp; APIs/scripts/covid_data_download.py" />
+      <option name="SCRIPT_NAME" value="C:\repo\Data-Engineer-Tech-Challenge\Section 4 - Charts &amp; APIs\scripts\covid_data_download_main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -77,7 +77,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.covid_data_download" />
+        <item itemvalue="Python.covid_data_download_main" />
         <item itemvalue="Python.application_processing_main" />
       </list>
     </recent_temporary>
