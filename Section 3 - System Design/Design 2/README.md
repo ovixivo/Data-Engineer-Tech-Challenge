@@ -21,7 +21,7 @@ draw.io is used in this section to draw the diagram
 
 ### Proposed design
 
-![alt text](https://github.com/ovixivo/Data-Engineer-Tech-Challenge/blob/section3-dev/Section%203%20-%20System%20Design/Design%202/Cloud%20data%20infrastructure%20system%20architecture%20diagram.png "System Architecture")
+![alt text](https://github.com/ovixivo/Data-Engineer-Tech-Challenge/blob/main/Section%203%20-%20System%20Design/Design%202/Cloud%20data%20infrastructure%20system%20architecture%20diagram.png "System Architecture")
 
 The architecture is design with hybrid cloud architecture.
 There are 2 environments in the setup, firstly on premise, secondly Azure Cloud.
